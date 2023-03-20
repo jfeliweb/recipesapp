@@ -7,6 +7,7 @@ import bcrypt from 'bcrypt'
 import { UserModel } from '../models/User.js'
 
 const router = express.Router()
+
 // Register a new user
 router.post('/register', async (req, res) => {
 	const { username, password } = req.body

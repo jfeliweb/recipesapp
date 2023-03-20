@@ -47,15 +47,15 @@ export { router as usersRouter }
 
 // Middleware
 export const verifyToken = (req, res, next) => {
-	const token = req.headers.authorization
-	if (token) {
-		jwt.verify(token, `${process.env.JWT_SECRET}`, error => {
-			if (error) {
-				return res.status(403).json({ message: 'Invalid token' })
-				next()
+	const authHeader = req.headers.authorization
+	if (authHeader) {
+		jwt.verify(authHeader, `${process.env.JWT_SECRET}`, err => {
+			if (err) {
+				return res.sendStatus(403)
 			}
+			next()
 		})
 	} else {
-		return res.status(401).json({ message: 'No token provided' })
+		res.sendStatus(401)
 	}
 }

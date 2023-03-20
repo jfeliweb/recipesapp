@@ -10,7 +10,7 @@ export const Register = () => {
 	const onSubmit = async event => {
 		event.preventDefault()
 		try {
-			await axios.post('http://localhost:3001/auth/register', { username, password })
+			await axios.post('https://recipesapp-ywao.onrender.com/auth/register', { username, password })
 			alert('Successfully registered! Now you can login.')
 		} catch (error) {
 			console.error(error)

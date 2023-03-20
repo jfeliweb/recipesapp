@@ -15,7 +15,7 @@ export const Home = () => {
 	useEffect(() => {
 		const fetchRecipes = async () => {
 			try {
-				const response = await axios.get('http://localhost:3001/recipes')
+				const response = await axios.get('https://recipesapp-ywao.onrender.com/recipes')
 				setRecipes(response.data)
 			} catch (error) {
 				console.log(error)
@@ -24,7 +24,9 @@ export const Home = () => {
 
 		const fetchSavedRecipe = async () => {
 			try {
-				const response = await axios.get(`http://localhost:3001/recipes/savedRecipes/ids/${userID}`)
+				const response = await axios.get(
+					`https://recipesapp-ywao.onrender.com/recipes/savedRecipes/ids/${userID}`,
+				)
 				setSavedRecipes(response.data.savedRecipes)
 			} catch (error) {
 				console.log(error)
@@ -40,7 +42,7 @@ export const Home = () => {
 	const saveRecipe = async recipeID => {
 		try {
 			const response = await axios.put(
-				'http://localhost:3001/recipes',
+				'https://recipesapp-ywao.onrender.com/recipes',
 				{ recipeID, userID },
 				{ headers: { authorization: cookies.access_token } },
 			)

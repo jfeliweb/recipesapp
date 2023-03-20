@@ -4,7 +4,7 @@ dotenv.config()
 import express from 'express'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
-import { UserModel } from '../models/user.js'
+import { UserModel } from '../models/User.js'
 
 const router = express.Router()
 // Register a new user
